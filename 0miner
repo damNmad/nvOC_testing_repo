@@ -14,7 +14,6 @@
 # v=0001 : papampi: Initial Release
 # v=0002 : papampi: fix lbc
 
-
 nvOC_Ver="nvOC v0019-2.0 - Community Release"
 nvOC_0miner_ver="v0019-2.0.0002"   # Do not edit this
 
@@ -417,6 +416,21 @@ then
   ADDR="$DSR_ADDRESS"
   screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$DSR_POOL:$DSR_PORT -u $ADDR -p c=$MINER_PWD -i $DSR_INTENSITY
 fi
+
+if [ $COIN == "RAP" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$RAP_ADDRESS"
+  screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$RAP_POOL:$RAP_PORT -u $ADDR -p c=RAP -i $RAP_INTENSITY
+fi
+
+if [ $COIN == "GRLC" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$GRLC_ADDRESS"
+  screen -dmSL miner $HCD -a scrypt:10 -o stratum+tcp://$GRLC_POOL:$GRLC_PORT -u $ADDR -p x -i $GRLC_INTENSITY
+fi
+
 if [ $COIN == "VIVO" ]
 then
   HCD='/home/m1/SPccminer/ccminer'
@@ -428,7 +442,7 @@ if [ $COIN == "LUX" ]
 then
   HCD='/home/m1/ANXccminer/ccminer'
   ADDR="$LUX_ADDRESS"
-  screen -dmSL miner $HCD -a phi -o stratum+tcp://$LUX_POOL:$LUX_PORT -u $ADDR -p $LUX_WORKER -i $LUX_INTENSITY
+  screen -dmSL miner $HCD -a phi -o stratum+tcp://$LUX_POOL:$LUX_PORT -u $ADDR -p $MINER_PWD -i $LUX_INTENSITY
 fi
 
 if [ $COIN == "KRB" ]
@@ -451,11 +465,40 @@ then
   ADDR="$SUMO_ADDRESS"
   screen -dmSL miner $HCD -o stratum+tcp://$SUMO_POOL:$SUMO_PORT -u $ADDR -p $MINER_PWD
 fi
+
+if [ $COIN == "DCY" ]
+then
+  HCD='/home/m1/KTccminer-cryptonight/ccminer'
+  ADDR="$DCY_ADDRESS"
+  screen -dmSL miner $HCD -o stratum+tcp://$DCY_POOL:$DCY_PORT -u $ADDR -p $MINER_PWD
+fi
+
+if [ $COIN == "ITNS" ]
+then
+  HCD='/home/m1/KTccminer-cryptonight/ccminer'
+  ADDR="$ITNS_ADDRESS"
+  screen -dmSL miner $HCD -o stratum+tcp://$ITNS_POOL:$ITNS_PORT -u $ADDR -p $MINER_PWD
+fi
+
 if [ $COIN == "ORB" ]
 then
   HCD='/home/m1/TPccminer/ccminer'
   ADDR="$ORB_ADDRESS.$ORB_WORKER"
   screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$ORB_POOL:$ORB_PORT -u $ADDR -p $MINER_PWD -i $ORB_INTENSITY
+fi
+
+if [ $COIN == "NMD" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$NMD_ADDRESS"
+  screen -dmSL miner $HCD -a hmq1725 -o stratum+tcp://$NMD_POOL:$NMD_PORT -u $ADDR -p c=NMD -i $NMD_INTENSITY
+fi
+
+if [ $COIN == "XCOIN" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$XCOIN_ADDRESS"
+  screen -dmSL miner $HCD -a hmq1725 -o stratum+tcp://$XCOIN_POOL:$XCOIN_PORT -u $ADDR -p c=XCOIN -i $XCOIN_INTENSITY
 fi
 
 if [ $COIN == "PXC" ]
@@ -850,6 +893,43 @@ then
     MUSICADDR="$MUSIC_ADDRESS/$MUSIC_WORKER"
 
     screen -dmSL miner $HCD -epool $MUSIC_POOL:$MUSIC_PORT -ewal $MUSICADDR -epsw x -mode 1 -allpools 1 -dbg -1 $MUSIC_EXTENSION_ARGUMENTS
+  fi
+fi
+
+if [ $COIN == "ETZ" ]
+then
+
+  if [ $ETHMINER_or_GENOIL_or_CLAYMORE == "GENOIL" ]
+  then
+    HCD='/home/m1/eth/Genoil-U/ethminer'
+
+    ETZADDR="$ETZ_ADDRESS/$ETZ_WORKER"
+
+    screen -dmSL miner $HCD -F $ETZ_POOL:$ETZ_PORT/$ETZADDR -G
+  fi
+
+  if [ $ETHMINER_or_GENOIL_or_CLAYMORE == "ETHMINER" ]
+  then
+    HCD='/home/m1/eth/ethminer/latest/ethminer'
+
+    ETZADDR="$ETZ_ADDRESS/$ETZ_WORKER"
+
+    if [ $DOT_POOL_FORMAT_or_FORWARD_SLASH_POOL_FORMAT == "DOT" ]
+    then
+      ETZADDR="$ETZ_ADDRESS/$ETZ_WORKER"
+    fi
+
+    screen -dmSL miner $HCD -F $ETZ_POOL:$ETZ_PORT/$ETZADDR -G
+  fi
+
+  if [ $ETHMINER_or_GENOIL_or_CLAYMORE == "CLAYMORE" ]
+  then
+
+    HCD=/home/m1/eth/claymore/$CLAYMORE_VERSION/ethdcrminer64
+
+    ETZADDR="$ETZ_ADDRESS/$ETZ_WORKER"
+
+    screen -dmSL miner $HCD -epool $ETZ_POOL:$ETZ_PORT -ewal $ETZADDR -epsw x -mode 1 -allpools 1 -dbg -1 $ETZ_EXTENSION_ARGUMENTS
   fi
 fi
 
