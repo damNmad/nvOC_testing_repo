@@ -382,6 +382,13 @@ then
   screen -dmSL miner $HCD -a lyra2v2 -o stratum+tcp://$VTC_POOL:$VTC_PORT -u $ADDR -p $MINER_PWD -i $VTC_INTENSITY
 fi
 
+if [ $COIN == "RACE" ]
+then
+  HCD='/home/m1/ASccminer/ccminer'
+  ADDR="$RACE_ADDRESS"
+  screen -dmSL miner $HCD -a lyra2v2 -o stratum+tcp://$RACE_POOL:$RACE_PORT -u $ADDR -p c=RACE -i $RACE_INTENSITY
+fi
+
 if [ $COIN == "DGB" ]
 then
   HCD='/home/m1/TPccminer/ccminer'

@@ -166,7 +166,7 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN
+### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, RACE
 
 
 
@@ -186,7 +186,7 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 #                                                      #
 ########################################################
 
-COIN="XCOIN"
+COIN="RACE"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
@@ -620,6 +620,13 @@ VTC_ADDRESS="replace_with_your_address"
 VTC_POOL="hub.miningpoolhub.com"
 VTC_PORT="20507"
 VTC_INTENSITY="21"
+
+# RACE ## No Need to add stratum+tcp:// to server address
+RACE_WORKER="$WORKERNAME"
+RACE_ADDRESS="replace_with_your_address"
+RACE_POOL="lycheebit.com"
+RACE_PORT="4533"
+RACE_INTENSITY="21"
 
 #NMD Nomad Coin ## No Need to add stratum+tcp:// to server address
 NMD_WORKER="$WORKERNAME"
@@ -1110,7 +1117,7 @@ then
   fi
 
   # ZCOIN lyra2v2
-  if [ $COIN == "ZCOIN" ]
+  if [ $COIN == "ZCOIN" -o $COIN == "RACE" ]
   then
     ALGORITHM="LYRA2V2"
     POWERLIMIT_WATTS=65
