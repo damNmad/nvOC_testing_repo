@@ -166,7 +166,7 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, RACE
+### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, , VEGI, RACE (not yet ready for mining)
 
 
 
@@ -186,7 +186,7 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 #                                                      #
 ########################################################
 
-COIN="RACE"
+COIN="VEGI"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
@@ -641,6 +641,13 @@ XCOIN_ADDRESS="xGP7xsFVD7Un34TxbQJ21x1mWTYWNzonns"
 XCOIN_POOL="arcpool.com"
 XCOIN_PORT="3747"
 XCOIN_INTENSITY="22"
+
+#VEGI Coin ## No Need to add stratum+tcp:// to server address
+VEGI_WORKER="$WORKERNAME"
+VEGI_ADDRESS="KVzcHCdfRbn2NQmLccivh6ykJoDrCMZfgt"
+VEGI_POOL="veggie.altcoin-pool.eu"
+VEGI_PORT="3747"
+VEGI_INTENSITY="22"
 
 # TZC ## No Need to add stratum+tcp:// to server address
 TZC_WORKER="$WORKERNAME"
@@ -1149,7 +1156,7 @@ then
     MEMORY_OVERCLOCK=1200
   fi
     # NMD hmq1725
-  if [ $COIN == "NMD" -o $COIN == "XCOIN" ]
+  if [ $COIN == "NMD" -o $COIN == "XCOIN" -o $COIN == "VEGI" ]
   then
     ALGORITHM="HMQ1725"
     POWERLIMIT_WATTS=78

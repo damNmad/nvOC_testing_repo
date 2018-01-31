@@ -508,6 +508,13 @@ then
   screen -dmSL miner $HCD -a hmq1725 -o stratum+tcp://$XCOIN_POOL:$XCOIN_PORT -u $ADDR -p c=XCOIN -i $XCOIN_INTENSITY
 fi
 
+if [ $COIN == "VEGI" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$VEGI_ADDRESS"
+  screen -dmSL miner $HCD -a hmq1725 -o stratum+tcp://$VEGI_POOL:$VEGI_PORT -u $ADDR -p c=VEGI -i $VEGI_INTENSITY
+fi
+
 if [ $COIN == "PXC" ]
 then
   HCD='/home/m1/TPccminer/ccminer'
