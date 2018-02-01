@@ -166,7 +166,7 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, , VEGI, RACE (not yet ready for mining)
+### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE
 
 
 
@@ -186,7 +186,7 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 #                                                      #
 ########################################################
 
-COIN="VEGI"
+COIN="LUX"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
@@ -623,8 +623,8 @@ VTC_INTENSITY="21"
 
 # RACE ## No Need to add stratum+tcp:// to server address
 RACE_WORKER="$WORKERNAME"
-RACE_ADDRESS="replace_with_your_address"
-RACE_POOL="lycheebit.com"
+RACE_ADDRESS="RHPEFMo7DCuPssMXoCK5fCQcyfSsPKTFVd"
+RACE_POOL="tiny-pool.com"
 RACE_PORT="4533"
 RACE_INTENSITY="21"
 
@@ -719,7 +719,7 @@ VIVO_PORT="VIVO PORT"
 VIVO_INTENSITY="21"
 
 #LUXCORE LUX ## No Need to add stratum+tcp:// to server address
-LUX_WORKER="LUX"
+LUX_WORKER="$WORKERNAME"
 LUX_ADDRESS="LbRa9w4qJ8midnQMPciK3tKzrstt21yZ3p"
 LUX_POOL="yiimp.eu"
 LUX_PORT="8333"
@@ -1143,9 +1143,9 @@ then
   if [ $COIN == "LUX" ]
   then
     ALGORITHM="PHI"
-    POWERLIMIT_WATTS=80
+    POWERLIMIT_WATTS=82
     __CORE_OVERCLOCK=150
-    MEMORY_OVERCLOCK=-600
+    MEMORY_OVERCLOCK=-200
   fi
     # GRLC scrypt:10
   if [ $COIN == "GRLC" ]

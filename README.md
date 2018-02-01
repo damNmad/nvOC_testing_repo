@@ -1,6 +1,4 @@
-NEW COINS : LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI 
-
-RACE (mining supposed to start on 31st Jan 8:00 UTC but didn't)
+NEW COINS : LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE
 
 
 =================================================================================
