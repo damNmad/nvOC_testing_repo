@@ -2,19 +2,36 @@
 
 ##########################################################################
 ##########################################################################
-#################   nvOC v0019-2.0 - Community Release   #################
+#################   nvOC v0019-2.1 - Community Release   #################
 ##############        by papampi, Stubo and leenoox         ##############
 ##########   Based on the original nvOC v0019-1.4 by fullzero   ##########
 ##########################################################################
 ##########################################################################
-# v=0001 : 
-# v=0002 : Papampi : Telegram changes
-# v=0003 : Papampi : WTM_MINIMUM_MINING_TIME 
+# v=0001 : Community Release
+#
+# v=0002 : Papampi
+#          Telegram changes
+#
+# v=0003 : Papampi
+#          WTM_MINIMUM_MINING_TIME
+#
+# v=0004 : Papampi
+#          More NiceHash mining algos
+#
+# v=0005 : damNmad
+#          New Coins LUX, SUMO, DSR
+#
+# v=0006 : Papampi
+#          New Coins ELLA, XVG, GBX, CRC
+#
+# v=0007 : Papampi
+#          EQUIHASH_MINER, ETHASH_MINER, bminer,
 
-nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
+nvOC_Ver="nvOC v0019-2.0 - Community Release" # Do not edit this
+nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 
 
-# 1bash for v0019-2.0 (1bash subversion 001)
+# 1bash for v0019-2.1 (1bash subversion 001)
 
 
 # fullzero:     nvOC creator
@@ -166,7 +183,8 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE
+### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN
+
 
 
 
@@ -177,24 +195,21 @@ nvOC_1bash_ver="v0019-2.0.003"   # Do not edit this
 ###############################################################################
 
 
-
-
-
 ########################################################
 #                                                      #
 # General settings                                     #
 #                                                      #
 ########################################################
 
-COIN="LUX"
+COIN="HCN"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
 NUMBER_GPUS_INSTALLED=""    # Number or "" # Set number of GPUs installed. Watchdog will check installed vs detected. Leave empty to not check
 
 LOCALorREMOTE="LOCAL"       # LOCAL or REMOTE # Set to LOCAL if you have local access to the rig. Set to REMOTE if logging remotely to the rig
-                            # LOCAL will attach the mining process to the gnome or guake terminal
-                            # REMOTE will leave it unattached, it will be launched using "screen", ready for SSH
+							# LOCAL will attach the mining process to the gnome or guake terminal
+							# REMOTE will leave it unattached, it will be launched using "screen", ready for SSH
 
 
 TEAMVIEWER="YES"             # YES or NO # If you use Team Viewer to remotely connect to this rig set this to YES
@@ -220,8 +235,8 @@ AUTO_WORKERNAME="CUSTOM"      # HOST or MAC or CUSTOM # Use HOST IP address or n
 CUSTOM_WORKERNAME="RIGV1920"    # If AUTO_WORKERNAME="CUSTOM" enter your desired workername here
 
 
-
-AUTO_UPDATE="STABLE"        # STABLE or BETA # To update to the latest STABLE or BETA releases, manually run 4update in guake terminal
+#Auto update is disabled on v0019-2.x Community Release.
+AUTO_UPDATE="STABLE"        # STABLE or BETA # To update to the latest STABLE or BETA releases, manually run 4update in guake terminal 
 
 
 
@@ -310,7 +325,7 @@ TELEGRAM_ALERTS="YES"       # YES or NO # Set to No if you Dont want to get Tele
 
 TELEGRAM_TYPE="damNmad"              # kk003 or papampi or damNmad or BaliMiner # There are 4 versions. Please choose one
 
-TELEGRAM_TIMEOUT_IN_MINUTES="20"     # timeout
+TELEGRAM_TIMEOUT_IN_MINUTES="30"     # timeout
 
 TELEGRAM_CHATID="448787331"             # Enter your Chat ID here
 
@@ -325,24 +340,25 @@ TELEGRAM_APIKEY="418008682:AAGaCvZYoRbE0xa2TCN4MI1JvEpFTOjweo4"  # Enter your AP
 
 POWERLIMIT="YES"            # YES or NO # Choose YES to set Global Power Limit for all GPU's
 
-POWERLIMIT_WATTS=78         # Global Power Limit in watts for all GPU's. If enabled, INDIVIDUAL settings will override this. 
+POWERLIMIT_WATTS=78         # Global Power Limit in watts for all GPU's. If enabled, INDIVIDUAL settings will override this.
 
 __CORE_OVERCLOCK=135        # Global Core overclock for all GPU's if not using INDIVIDUAL settings
 
 MEMORY_OVERCLOCK=1300        # Global Memory overclock for all GPU's if not using INDIVIDUAL settings
 
 
-# SET OC and POWERLIMIT dependant on what mining ALGO is used (see end of 1bash for ALGO OC settings)
+# SET OC and POWERLIMIT dependant on what mining ALGO is used (see end of 1bash for damNmad ALGO OC settings)
 # Please note that this works for Global settings only, can not use INDIVIDUAL settings with this.
-# For OPT use of PAPAMPI_WTM_AUTO_SWITCH use ALGO_SPECIFIC_OC !!
+# For OPT use of PAPAMPI_WTM_AUTO_SWITCH use damNmad ALGO_SPECIFIC_OC!!
 # Default values set at the end of 1bash are for 1060, remember to set yours accordingly.
-ALGO_SPECIFIC_OC="YES"       # YES or NO # See the description above
+
+ALGO_SPECIFIC_OC="YES"       # YES or NO # damNmad ALGO_SPECIFIC_OC settings, See the description above
 
 P106_100_FULL_HEADLESS_MODE="NO"  # YES or NO # If using P106_100 GPU's in a full headless (no monitor) rig, set this to YES
 
 GPUPowerMizerMode_Adjust="NO" # YES or NO # Use nvidia PowerMizerMode
 
-GPUPowerMizerMode=1           # Set PowerMizerMode 
+GPUPowerMizerMode=1           # Set PowerMizerMode
 
 
 ########################################################
@@ -353,14 +369,14 @@ GPUPowerMizerMode=1           # Set PowerMizerMode
 
 WTM_AUTO_SWITCH="NO"        # ( whattomine.com switcher) remember to disable Parallax MODE (_Parallax_MODE="NO")
 
-WTM_PROFIT_CHECK="NO"      # whattomine.com Profit check for webinfo
+WTM_PROFIT_CHECK="NO"      # whattomine.com Profit check for webinfo, only use if WTM_AUTO_SWITCH=NO
 
 # note!! all selected COINS must HAVE ADDRESSES in the coin section below (no need for address if switch=no and profit=yes )
 # select which coins you want to mine or check profit (profit switch only using this list of coins) it will auto switch/check profit of your COIN selection from this list using whattomine.com
 
 WTM_AUTO_SWITCH_COINS="ZEC;ZEN;ETH;BTG;FTC" ### coins to check profit or make the switch with format "ZEC;ETH;ETC;XMR"
 
-WTM_AUTO_SWITCH_SYNC_INTERVAL="10" # Time to sync with WTM for best coin
+WTM_AUTO_SWITCH_SYNC_INTERVAL="10" # Time to sync with WTM for best coin, minimum 3 minutes.
 
 WTM_PROFIT_CHECK_INTERVAL="60" # interval between checking profit for web info
 
@@ -379,7 +395,7 @@ WTM_AUTO_SWITCH_URL="https://whattomine.com/coins.json?utf8=%E2%9C%93&adapt_q_28
 
 
 ########################################################################################
-# GLOBAL_WORKERNAME implementation Start - DO NOT EDIT this section                    # 
+# GLOBAL_WORKERNAME implementation Start - DO NOT EDIT this section                    #
 ########################################################################################
 IPW=$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 IP_AS_WORKER=$(echo -n $IPW | tail -c -3 | sed 'y/./0/')
@@ -399,21 +415,22 @@ fi
 ########################################################################################
 
 
-
-
 ########################################################
 #                                                      #
 # Addresses, pools, ports, intensity, miner settings   #
 #                                                      #
 ########################################################
 
+USE_ENVIRONMENTAL_VARIBLES="NO"   # YES or NO # Not needed for nvidia cards. Default: NO
 
 BTC_ADDRESS="replace_with_your_BTC_address"
 
-# For zpool use MINER_PWD="$WORKERNAME,c=btc"
-MINER_PWD="c=LUX"               # Set the miner password. Default: x
+MPH_ADDRESS="replace_with_your_MPH_username"
 
-ZM_or_EWBF="ZM"  # choose ZM or EWBF miner
+# For zpool use MINER_PWD="$WORKERNAME,c=btc"
+MINER_PWD="x"               # Set the miner password. Default: x
+
+EQUIHASH_MINER="BMINER"  # choose "ZM" for dstm or "EWBF" or "BMINER" or "BMINER_SSL"
 
 # DSTM ZM Miner optional arguments add "--telemetry=$IPW:42000" if you want web info
 ZM_OPTS=""
@@ -424,14 +441,21 @@ EWBF_VERSION="3_4" # choose 3_3  or  3_4
 # EWBF ZEC Miner optional arguments. add "--api $IPW:42000" if you want web info
 EWBF_OPTS=""
 
+# Bminer optional arguments. add "--api $IPW:42000" if you want web info
+BMINER_OPTS=""
+
 # change EWBF_PERCENT to alter donation percent for EWBF Miner
 EWBF_PERCENT="0"
 
+# Some pools require dot (address.worker), some require slash (address/worker) format.
+# Depending on the pool you use, set this approprietly:
+DOT_POOL_FORMAT_or_FORWARD_SLASH_POOL_FORMAT="DOT"   # DOT or SLASH
+
+ETHASH_MINER="GENOIL"  # choose "CLAYMORE" or "ETHMINER" or "GENOIL"
 
 ################################################################
 ##### No Need to add stratum+tcp:// to your pool addresses #####
 ################################################################
-
 
 # ZEC
 ZEC_WORKER="$WORKERNAME"
@@ -445,6 +469,11 @@ ZCL_WORKER="$WORKERNAME"
 ZCL_ADDRESS="replace_with_your_address"
 ZCL_POOL="us.zclmine.pro"
 ZCL_PORT="9009"
+
+SNG_WORKER="$WORKERNAME"
+SNG_ADDRESS="s1T4LNxYVtSNGMHuadprK8Ly6TJUgVak1mY"
+SNG_POOL="mining.miningspeed.com"
+SNG_PORT="3022"
 
 # ZEN
 ZEN_WORKER="$WORKERNAME"
@@ -464,7 +493,7 @@ BTG_ADDRESS="kryptoMiner"
 BTG_POOL="europe.equihash-hub.miningpoolhub.com"
 BTG_PORT="20595"
 
-# Nice Equihash
+# Nice-Equihash
 NICE_EQUIHASH_WORKER="$WORKERNAME"
 NICE_EQUIHASH_ADDRESS="$BTC_ADDRESS"
 NICE_EQUIHASH_POOL="equihash.usa.nicehash.com"
@@ -518,6 +547,18 @@ ITNS_WORKER="$WORKERNAME"
 ITNS_ADDRESS="iz4UAWCFe4DHSP2T6JHpPL36wmiGeDN4gKZkETNBkCEjSz4V3fLnv6tCLytkHaSboZPnLGaF7U3ESQnJ5Ds9GWM21E3tA4Hgt"
 ITNS_POOL="45.32.171.89"
 ITNS_PORT="7777"
+
+# Turtle (TRTL) ## No Need to add stratum+tcp:// to server address
+TRTL_WORKER="$WORKERNAME"
+TRTL_ADDRESS="TRTLuzmsE8y8ofAaY9KthFgkcBcVGacpD2CorBGWh1y517HU2Agu8eoPAGpT6XoHo933kbXuWotuP8u2VUJMK9CpQ5hFmR5i5yz"
+TRTL_POOL="trtl.mine2gether.com"
+TRTL_PORT="3335"
+
+# Humanitary Coin (HCN) ## No Need to add stratum+tcp:// to server address
+HCN_WORKER="$WORKERNAME"
+HCN_ADDRESS="HbEcgcwx1Fo3UzjTa7fRJB4uMkd5nRn9dRf8vYFEdqrsfiZKu9RcPm2eABgnwBSwn6bAKdyZrnnvXC3bQZjuSskLGEu1mXK"
+HCN_POOL="hcn.pool.cat"
+HCN_PORT="5656"
 
 # SIGT ## No Need to add stratum+tcp:// to server address
 SIGT_WORKER="$WORKERNAME"
@@ -583,13 +624,11 @@ ZPOOL_SKEIN_INTENSITY="22"
 
 # MPH_EQUIHASH
 MPH_WORKER="$WORKERNAME"
-MPH_ADDRESS="replace_with_your_MPH_username"
 MPH_EQUIHASH_POOL="us-east.equihash-hub.miningpoolhub.com"
 MPH_EQUIHASH_PORT="17023"
 
 # MPH_ETHASH
 MPH_WORKER="$WORKERNAME"
-MPH_ADDRESS="replace_with_your_MPH_username"
 MPH_ETHASH_POOL="us-east.ethash-hub.miningpoolhub.com"
 MPH_ETHASH_PORT="17020"
 
@@ -648,7 +687,6 @@ VEGI_ADDRESS="KVzcHCdfRbn2NQmLccivh6ykJoDrCMZfgt"
 VEGI_POOL="veggie.altcoin-pool.eu"
 VEGI_PORT="3747"
 VEGI_INTENSITY="22"
-
 # TZC ## No Need to add stratum+tcp:// to server address
 TZC_WORKER="$WORKERNAME"
 TZC_ADDRESS="TZC ADDRESS"
@@ -666,8 +704,8 @@ GRLC_INTENSITY="22"
 # DSR ## No Need to add stratum+tcp:// to server address
 DSR_WORKER="$WORKERNAME"
 DSR_ADDRESS="DGgkd4nnKoNK4Nwkk5V983n4rJprauPWk8"
-DSR_POOL="pool.unimining.net"
-DSR_PORT="4234"
+DSR_POOL="DSR_POOL"
+DSR_PORT="DSR_PORT"
 DSR_INTENSITY="21"
 
 # RAP ## No Need to add stratum+tcp:// to server address
@@ -677,7 +715,7 @@ RAP_POOL="arcpool.com"
 RAP_PORT="4233"
 RAP_INTENSITY="21"
 
-# NICE_ETHASH autoconverts to BTC: ensure you update BTC_ADDRESS if you use NICE_ETHASH
+# NICE-ETHASH autoconverts to BTC: ensure you update BTC_ADDRESS if you use NICE_ETHASH
 NICE_ETHASH_WORKER="$WORKERNAME"
 NICE_ETHASH_POOL="stratum+tcp://daggerhashimoto.usa.nicehash.com:3353"
 GENOIL_NICE_ETHASH_POOL="daggerhashimoto.usa.nicehash.com:3353"
@@ -730,16 +768,33 @@ ONION_ADDRESS="replace_with_your_ONION_address"
 ONION_POOL="kawaiipool.party"
 ONION_PORT="3633"
 
+#Ellaism ELLA
+ELLA_WORKER="$WORKERNAME"
+ELLA_ADDRESS="replace_with_your_address"
+ELLA_POOL="replace_with_pool_address"
+ELLA_PORT="replace_with_pool_port"
+ELLA_EXTENSION_ARGUMENTS=""    # add any additional Claymore miner arguments here
 
-USE_ENVIRONMENTAL_VARIBLES="NO"   # YES or NO # Not needed vor nvidia cards. Default: NO
+#GoByte(GBX) ##No Need to add add stratum+tcp:// to server address
+GBX_WORKER="$WORKERNAME"
+GBX_ADDRESS="replace_with_your_address"
+GBX_POOL="replace_with_pool_address"
+GBX_PORT="replace_with_pool_port"
+GBX_INTENSITY="17"
 
-# Some pools require dot (address.worker), some require slash (address/worker) format.
-# Depending on the pool you use, set this approprietly:
-DOT_POOL_FORMAT_or_FORWARD_SLASH_POOL_FORMAT="DOT"   # DOT or SLASH
+#GoByte(CRC) ##No Need to add add stratum+tcp:// to server address
+CRC_WORKER="$WORKERNAME"
+CRC_ADDRESS="replace_with_your_address"
+CRC_POOL="replace_with_pool_address"
+CRC_PORT="replace_with_pool_port"
+CRC_INTENSITY="17"
 
-CLAYMORE_VERSION="latest"    # choose: latest or 10_0 or 9_8 or 9_7 or 9_5 or 9_4 or 8_0.  (type latest to use 10_2)
-
-ETHMINER_or_GENOIL_or_CLAYMORE="CLAYMORE"  # choose CLAYMORE or ETHMINER or GENOIL 
+#Verge-Lyra2REv2(XVG) ##No Need to add stratum+tcp:// to server address
+XVG_WORKER="$WORKERNAME"
+XVG_ADDRESS="replace_with_your_address"
+XVG_POOL="replace_with_pool_address"
+XVG_PORT="replace_with_pool_port"
+XVG_INTENSITY="21"
 
 # ETH
 ETH_WORKER="$WORKERNAME"
@@ -783,13 +838,6 @@ MUSIC_POOL="eus.gmc.epool.io"
 MUSIC_PORT="8008"
 MUSIC_EXTENSION_ARGUMENTS=""   # add any additional Claymore miner arguments here
 
-# ETZ
-ETZ_WORKER="$WORKERNAME"
-ETZ_ADDRESS="0x606C59E5bB70Dff021C7f8fC7b3bBd40Bae5251D"
-ETZ_POOL="http://us-pool.etherzero.org"
-ETZ_PORT="8888"
-ETZ_EXTENSION_ARGUMENTS=""   # add any additional Claymore miner arguments here
-
 # SOIL
 SOIL_WORKER="$WORKERNAME"
 SOIL_ADDRESS="replace_with_your_SOIL_address"
@@ -830,7 +878,7 @@ PASL_ADDRESS="replace_with_your_PASL_ACCOUNT"
 PASL_POOL="mine.pasl.fairpool.xyz"
 PASL_PORT="4009"
 
-# XMR : if plusCPU is "YES" replace with your XMR info  
+# XMR : if plusCPU is "YES" replace with your XMR info
 ## No Need to add stratum+tcp:// to server address
 XMR_WORKER="$WORKERNAME"
 XMR_ADDRESS="replace_with_your_XMR_address"
@@ -851,7 +899,6 @@ SMART_PORT="3333"
 SMART_INTENSITY="25"
 
 
-
 ########################################################
 #                                                      #
 # SALFTER_NICEHASH_PROFIT_SWITCHING &                  #
@@ -866,7 +913,7 @@ POWER_COST=0.20
 
 MINIMUM_PROFIT=0.0
 
-MPH_USERNAME=replace_with_your_MPH_username
+MPH_USERNAME="replace_with_your_MPH_username"
 
 PAYMENT_ADDRESS="$BTC_ADDRESS"
 
@@ -1058,7 +1105,54 @@ MEMORY_OVERCLOCK_18=100
 
 ########################################################
 #                                                      #
-# ALGO_SPECIFIC_OC settings                            #
+###############    NiceHash Info       #################
+#                                                      #
+########################################################
+
+
+NICE_WORKER="$WORKERNAME"
+NICE_ADDRESS="$NICEHASH_BTC_ADDRESS"
+
+# NICE_ETHASH autoconverts to BTC: ensure you update BTC_ADDRESS if you use NICE_ETHASH
+NICE_ETHASH_WORKER="$WORKERNAME"
+NICE_ETHASH_POOL="daggerhashimoto.usa.nicehash.com"
+NICE_ETHASH_PORT="3353"
+NICE_ETHASH_EXTENSION_ARGUMENTS=""   # add any additional claymore arguments desired here
+
+# Nice Equihash
+NICE_EQUIHASH_WORKER="$WORKERNAME"
+NICE_EQUIHASH_ADDRESS="$BTC_ADDRESS"
+NICE_EQUIHASH_POOL="equihash.usa.nicehash.com"
+NICE_EQUIHASH_PORT="3357"
+
+#NICE_LYRA2REV2 stratum+tcp://
+NICE_LYRA2REV2_POOL="lyra2rev2.eu.nicehash.com"
+NICE_LYRA2REV2_PORT="3347"
+NICE_LYRA2REV2_INTENSITY="21"
+
+#NICE_NEOSCRYPT  stratum+tcp://
+NICE_NEOSCRYPT_POOL="neoscrypt.eu.nicehash.com"
+NICE_NEOSCRYPT_PORT="3341"
+NICE_NEOSCRYPT_INTENSITY="17"		# 17 because using KTccminer latest version that give best hashrate in Neoscrypt but more intensity crash ccminer
+
+#NICE_CRYPTONIGHT stratum+tcp://
+NICE_CRYPTONIGHT_POOL="cryptonight.eu.nicehash.com:3355"
+NICE_CRYPTONIGHT_PORT="3355"
+NICE_CRYPTONIGHT_INTENSITY="21"
+
+#NICE_X11GOST stratum+tcp://
+NICE_X11GOST_POOL="x11gost.eu.nicehash.com"
+NICE_X11GOST_PORT="3359"
+NICE_X11GOST_INTENSITY="21"
+
+#NICE_SKUNKHASH stratum+tcp://
+NICE_SKUNKHASH_POOL="skunk.eu.nicehash.com:"
+NICE_SKUNKHASH_PORT="3362"
+NICE_SKUNKHASH_INTENSITY="21"
+
+########################################################
+#                                                      #
+# damNmad ALGO_SPECIFIC_OC settings                    #
 #                                                      #
 ########################################################
 
@@ -1085,10 +1179,11 @@ then
     POWERLIMIT_WATTS=76
     __CORE_OVERCLOCK=100
     MEMORY_OVERCLOCK=1650
+
   fi
 
   # Equihash
-  if [ $COIN == "BTG" -o $COIN == "ZEC" -o $COIN == "ZEN" -o $COIN == "HUSH" -o $COIN == "ZCL" -o $COIN == "KMD" -o $COIN == "ZPOOL_EQUIHASH" -o $COIN == "MPH_EQUIHASH" -o $COIN == "NICE_EQUIHASH" -o $COIN == "VOTE" ]
+  if [ $COIN == "BTG" -o $COIN == "ZEC" -o $COIN == "ZEN" -o $COIN == "HUSH" -o $COIN == "ZCL" -o $COIN == "KMD" -o $COIN == "ZPOOL_EQUIHASH" -o $COIN == "MPH_EQUIHASH" -o $COIN == "NICE_EQUIHASH" -o $COIN == "VOTE" -o $COIN == "SNG" ]
   then
     ALGORITHM="EQUIHASH"
     POWERLIMIT_WATTS=76
@@ -1106,12 +1201,13 @@ then
   fi
 
   # Cryptonight
-  if [ $COIN == "XMR" -o $COIN == "KRB" -o $COIN == "ETN" -o $COIN == "SUMO" -o $COIN == "ITNS" -o $COIN == "DCY" ]
+  if [ $COIN == "XMR" -o $COIN == "KRB" -o $COIN == "ETN" -o $COIN == "SUMO" -o $COIN == "ITNS" -o $COIN == "DCY" -o $COIN == "TRTL" -o $COIN == "HCN" ]
   then
     ALGORITHM="CRYPTONIGHT"
     POWERLIMIT_WATTS=64
     __CORE_OVERCLOCK=120
     MEMORY_OVERCLOCK=1600
+
   fi
 
   # lyra2vRev2
@@ -1145,7 +1241,7 @@ then
     ALGORITHM="PHI"
     POWERLIMIT_WATTS=82
     __CORE_OVERCLOCK=150
-    MEMORY_OVERCLOCK=-200
+    MEMORY_OVERCLOCK=-1000
   fi
     # GRLC scrypt:10
   if [ $COIN == "GRLC" ]
