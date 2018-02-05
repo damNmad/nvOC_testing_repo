@@ -585,6 +585,13 @@ then
   screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$ORB_POOL:$ORB_PORT -u $ADDR -p $MINER_PWD -i $ORB_INTENSITY
 fi
 
+if [ $COIN == "ZOC" ]
+then
+  HCD='/home/m1/tpruvot/ccminer'
+  ADDR="$ZOC_ADDRESS"
+  screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$ZOC_POOL:$ZOC_PORT -u $ADDR -p c=ZOC -i $ZOC_INTENSITY
+fi
+
 if [ $COIN == "NMD" ]
 then
   HCD='/home/m1/TPccminer/ccminer'
@@ -625,6 +632,13 @@ then
   HCD='/home/m1/TPccminer/ccminer'
   ADDR="$SIGT_ADDRESS.$SIGT_WORKER"
   screen -dmSL miner $HCD -a skunk -o stratum+tcp://$SIGT_POOL:$SIGT_PORT -u $ADDR -p $MINER_PWD -i $SIGT_INTENSITY
+fi
+
+if [ $COIN == "RVN" ]
+then
+  HCD='/home/m1/MSFTccminer/ccminer'
+  ADDR="$RVN_ADDRESS"
+  screen -dmSL miner $HCD -a x16r -o stratum+tcp://$RVN_POOL:$RVN_PORT -u $ADDR -p c=RVN -i $RVN_INTENSITY
 fi
 
 if [ $COIN == "ALTCOM" ]

@@ -1,5 +1,10 @@
-NEW COINS : LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN
+NEW COINS : LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, ZOC, RVN
 
+For Raven, need to compile x16r miner from here
+
+https://github.com/MSFTserver/ccminer.git
+
+Instructions in our discord channel
 
 =================================================================================
 
@@ -14,7 +19,7 @@ good coins and some just get wasted, some may don't even go to exchange - you ne
 but I've seen very good results by mining new coins.
 
 Best eg; I've early mined PIRL for 5 days and it has paid of my RIG investment and I've 
-mined many other shit coins like XMRL, IRD etc which didn't even reached exchanges.
+mined many other shit coins like XMRL, IRD (this isn't a shit coin) etc which didn't even reached exchanges.
 
 I'm only doing this for people like me who has only 1 RIG to mine and do mining just as a hobby.
 

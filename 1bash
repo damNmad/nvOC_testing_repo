@@ -183,7 +183,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN
+### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, ZOC, RVN
 
 
 
@@ -201,7 +201,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 #                                                      #
 ########################################################
 
-COIN="HCN"
+COIN="RVN"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
@@ -551,8 +551,10 @@ ITNS_PORT="7777"
 # Turtle (TRTL) ## No Need to add stratum+tcp:// to server address
 TRTL_WORKER="$WORKERNAME"
 TRTL_ADDRESS="TRTLuzmsE8y8ofAaY9KthFgkcBcVGacpD2CorBGWh1y517HU2Agu8eoPAGpT6XoHo933kbXuWotuP8u2VUJMK9CpQ5hFmR5i5yz"
-TRTL_POOL="trtl.mine2gether.com"
-TRTL_PORT="3335"
+#TRTL_POOL="trtl.mine2gether.com"
+#TRTL_PORT="3335"
+TRTL_POOL="turtle-eu.atpool.party"
+TRTL_PORT="7777"
 
 # Humanitary Coin (HCN) ## No Need to add stratum+tcp:// to server address
 HCN_WORKER="$WORKERNAME"
@@ -749,6 +751,13 @@ ORB_POOL="strat.dnb.io"
 ORB_PORT="3031"
 ORB_INTENSITY="23"
 
+# ZOC ## No Need to add stratum+tcp:// to server address
+ZOC_WORKER="$WORKERNAME"
+ZOC_ADDRESS="ZQH4k75Nbf6WYQJwtHcVziC48nvGVmcmbw"
+ZOC_POOL="hashfaster.com"
+ZOC_PORT="4233"
+ZOC_INTENSITY="23"
+
 # VIVO ## No Need to add stratum+tcp:// to server address
 VIVO_WORKER="$WORKERNAME"
 VIVO_ADDRESS="VIVO ADDRESS"
@@ -897,6 +906,13 @@ SMART_ADDRESS="kryptoMiner"
 SMART_POOL="pool-eu.smartcash.cc"
 SMART_PORT="3333"
 SMART_INTENSITY="25"
+
+# RVN ## No Need to add stratum+tcp:// to server address
+RVN_WORKER="$WORKERNAME"
+RVN_ADDRESS="RDU8kpAAr7CkZ3HbFKAxhKAhfDFVEcN6TY"
+RVN_POOL="pool.threeeyed.info"
+RVN_PORT="3333"
+RVN_INTENSITY="20"
 
 
 ########################################################
@@ -1164,7 +1180,7 @@ if [ $ALGO_SPECIFIC_OC == "YES" ]
 then
 
   # Neoscrypt
-  if [ $COIN == "FTC" -o $COIN == "ORB" -o $COIN == "PXC" -o $COIN == "VIVO" -o $COIN == "TZC" -o $COIN == "DSR" -o $COIN == "RAP" ]
+  if [ $COIN == "FTC" -o $COIN == "ORB" -o $COIN == "PXC" -o $COIN == "VIVO" -o $COIN == "TZC" -o $COIN == "DSR" -o $COIN == "RAP" -o $COIN == "ZOC" ]
   then
     ALGORITHM="NEOSCRYPT"
     POWERLIMIT_WATTS=80
@@ -1258,5 +1274,13 @@ then
     POWERLIMIT_WATTS=78
     __CORE_OVERCLOCK=150
     MEMORY_OVERCLOCK=1200
+  fi
+     # RVN x16r
+  if [ $COIN == "RVN" ]
+  then
+    ALGORITHM="X16R"
+    POWERLIMIT_WATTS=78
+    __CORE_OVERCLOCK=100
+    MEMORY_OVERCLOCK=800
   fi
 fi
