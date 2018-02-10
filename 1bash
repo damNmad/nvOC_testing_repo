@@ -183,7 +183,8 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, ZOC, RVN
+### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, 
+###            ZOC, RVN,  BBS, CRS,  B2B
 
 
 
@@ -518,6 +519,13 @@ ZCOIN_ADDRESS="replace_with_your_address"
 ZCOIN_POOL="xzc.suprnova.cc"
 ZCOIN_PORT="1569"
 
+# CRS  ## No Need to add stratum+tcp:// to server address
+CRS_WORKER="$WORKERNAME"
+CRS_ADDRESS="CZE3MiyYYQyxG4kswQJEGyCYtfRKBSD5KB"
+CRS_POOL="pool.hashpool.eu"
+CRS_PORT="4553"
+CRS_INTENSITY="21"
+
 # KRB ## No Need to add stratum+tcp:// to server address
 KRB_WORKER="$WORKERNAME"
 KRB_ADDRESS="replace_with_your_address"
@@ -561,6 +569,18 @@ HCN_WORKER="$WORKERNAME"
 HCN_ADDRESS="HbEcgcwx1Fo3UzjTa7fRJB4uMkd5nRn9dRf8vYFEdqrsfiZKu9RcPm2eABgnwBSwn6bAKdyZrnnvXC3bQZjuSskLGEu1mXK"
 HCN_POOL="hcn.pool.cat"
 HCN_PORT="5656"
+
+# BBS Coin ## No Need to add stratum+tcp:// to server address
+BBS_WORKER="$WORKERNAME"
+BBS_ADDRESS="fySAp8gmsxDN6aL213ij4W74q9GWCsSSeXLhpGiq85HxayLWtyJACnc1sDWHhDMAAQHh88SLYu5nWbcztivtCMdX1syHG1Xkz"
+BBS_POOL="pool.bbscoin.xyz"
+BBS_PORT="7777"
+
+# B2B Coin ## No Need to add stratum+tcp:// to server address
+B2B_WORKER="$WORKERNAME"
+B2B_ADDRESS="64VL5nKncgYjgXum7ZDwBqczPzcCkJTEkimT4n85SpLugBCqHZzWc8j3mFUv7GaoeBEdL8oiVXJV31pg4wos5pmBQsKZNnE"
+B2B_POOL="pool.b2bcoin.ml"
+B2B_PORT="7777"
 
 # SIGT ## No Need to add stratum+tcp:// to server address
 SIGT_WORKER="$WORKERNAME"
@@ -1217,7 +1237,7 @@ then
   fi
 
   # Cryptonight
-  if [ $COIN == "XMR" -o $COIN == "KRB" -o $COIN == "ETN" -o $COIN == "SUMO" -o $COIN == "ITNS" -o $COIN == "DCY" -o $COIN == "TRTL" -o $COIN == "HCN" ]
+  if [ $COIN == "XMR" -o $COIN == "KRB" -o $COIN == "ETN" -o $COIN == "SUMO" -o $COIN == "ITNS" -o $COIN == "DCY" -o $COIN == "TRTL" -o $COIN == "HCN" -o $COIN == "BBS" -o $COIN == "B2B" ]
   then
     ALGORITHM="CRYPTONIGHT"
     POWERLIMIT_WATTS=64
@@ -1235,8 +1255,8 @@ then
     MEMORY_OVERCLOCK=-1200
   fi
 
-  # ZCOIN lyra2v2
-  if [ $COIN == "ZCOIN" -o $COIN == "RACE" ]
+  # ZCOIN lyra2z
+  if [ $COIN == "ZCOIN" -o $COIN == "RACE" -o $COIN == "CRS" ]
   then
     ALGORITHM="LYRA2V2"
     POWERLIMIT_WATTS=65
@@ -1279,8 +1299,8 @@ then
   if [ $COIN == "RVN" ]
   then
     ALGORITHM="X16R"
-    POWERLIMIT_WATTS=78
+    POWERLIMIT_WATTS=82
     __CORE_OVERCLOCK=100
-    MEMORY_OVERCLOCK=800
+    MEMORY_OVERCLOCK=0
   fi
 fi

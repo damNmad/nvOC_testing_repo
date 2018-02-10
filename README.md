@@ -1,5 +1,43 @@
-NEW COINS : LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, ZOC, RVN
+NEW COINS :
 
+LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN,
+ZOC, RVN,  BBS, CRS,  B2B
+
+=========
+B2B: (Web Wallet Available)
+
+Algo      : Cryptonight 
+
+ANN       : https://bitcointalk.org/index.php?topic=2098163.0
+
+Wallet    : https://b2bcoin.xyz/
+
+Pool List : https://forum.b2bcoin.xyz/viewtopic.php?f=15&t=4
+
+=========
+CRS: 
+
+Algo      : lyra2z
+
+ANN       : https://bitcointalk.org/index.php?topic=2747895.0
+
+Wallet    : https://github.com/CriptoReal/Criptoreal/releases/tag/v1.1.0
+
+Pool List : https://bitcointalk.org/index.php?topic=2747895.0
+
+=========
+BBS:
+
+Algo      : Cryptonight
+
+ANN       : https://bitcointalk.org/index.php?topic=2861067.0
+
+Wallet    : https://bbscoin.xyz/download.html
+
+Pool List : https://bitcointalk.org/index.php?topic=2861067.0
+
+
+===============================================================================
 For Raven, need to compile x16r miner from here
 
 https://github.com/MSFTserver/ccminer.git
@@ -26,5 +64,5 @@ I'm only doing this for people like me who has only 1 RIG to mine and do mining 
 
 =================================================================================
 
-Please note that myself/nvOC Team don't affiliate with these coins, I just add them based on my (just myself) 
+Please note that myself/nvOC Team doesn't affiliate with these coins, I just add them based on my (just myself) 
 perception and you make the decision whether to consider it or not.

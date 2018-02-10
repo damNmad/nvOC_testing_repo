@@ -578,6 +578,20 @@ then
   screen -dmSL miner $HCD -o stratum+tcp://$HCN_POOL:$HCN_PORT -u $ADDR -p $MINER_PWD
 fi
 
+if [ $COIN == "BBS" ]
+then
+  HCD='/home/m1/KTccminer-cryptonight/ccminer'
+  ADDR="$BBS_ADDRESS"
+  screen -dmSL miner $HCD -o stratum+tcp://$BBS_POOL:$BBS_PORT -u $ADDR -p $MINER_PWD
+fi
+
+if [ $COIN == "B2B" ]
+then
+  HCD='/home/m1/KTccminer-cryptonight/ccminer'
+  ADDR="$B2B_ADDRESS"
+  screen -dmSL miner $HCD -o stratum+tcp://$B2B_POOL:$B2B_PORT -u $ADDR -p $MINER_PWD
+fi
+
 if [ $COIN == "ORB" ]
 then
   HCD='/home/m1/TPccminer/ccminer'
@@ -590,6 +604,13 @@ then
   HCD='/home/m1/tpruvot/ccminer'
   ADDR="$ZOC_ADDRESS"
   screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$ZOC_POOL:$ZOC_PORT -u $ADDR -p c=ZOC -i $ZOC_INTENSITY
+fi
+
+if [ $COIN == "CRS" ]
+then
+  HCD='/home/m1/tpruvot/ccminer'
+  ADDR="$CRS_ADDRESS"
+  screen -dmSL miner $HCD -a lyra2z -o stratum+tcp://$CRS_POOL:$CRS_PORT -u $ADDR -p c=CRS -i $CRS_INTENSITY
 fi
 
 if [ $COIN == "NMD" ]
