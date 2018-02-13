@@ -184,7 +184,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
 ### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, 
-###            ZOC, RVN,  BBS, CRS,  B2B
+###            ZOC, RVN,  BBS, CRS,  B2B, LIZ
 
 
 
@@ -202,7 +202,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 #                                                      #
 ########################################################
 
-COIN="RVN"
+COIN="LIZ"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
@@ -709,6 +709,7 @@ VEGI_ADDRESS="KVzcHCdfRbn2NQmLccivh6ykJoDrCMZfgt"
 VEGI_POOL="veggie.altcoin-pool.eu"
 VEGI_PORT="3747"
 VEGI_INTENSITY="22"
+
 # TZC ## No Need to add stratum+tcp:// to server address
 TZC_WORKER="$WORKERNAME"
 TZC_ADDRESS="TZC ADDRESS"
@@ -933,6 +934,13 @@ RVN_ADDRESS="RDU8kpAAr7CkZ3HbFKAxhKAhfDFVEcN6TY"
 RVN_POOL="pool.threeeyed.info"
 RVN_PORT="3333"
 RVN_INTENSITY="20"
+
+# LIZ ## No Need to add stratum+tcp:// to server address
+LIZ_WORKER="$WORKERNAME"
+LIZ_ADDRESS="LfTryGEEzB28JhAFMvVgkg98dUoKyuy6iL"
+LIZ_POOL="eu1.protopool.net"
+LIZ_PORT="4924"
+LIZ_INTENSITY="22"
 
 
 ########################################################
@@ -1222,9 +1230,9 @@ then
   if [ $COIN == "BTG" -o $COIN == "ZEC" -o $COIN == "ZEN" -o $COIN == "HUSH" -o $COIN == "ZCL" -o $COIN == "KMD" -o $COIN == "ZPOOL_EQUIHASH" -o $COIN == "MPH_EQUIHASH" -o $COIN == "NICE_EQUIHASH" -o $COIN == "VOTE" -o $COIN == "SNG" ]
   then
     ALGORITHM="EQUIHASH"
-    POWERLIMIT_WATTS=76
-    __CORE_OVERCLOCK=150
-    MEMORY_OVERCLOCK=800
+    POWERLIMIT_WATTS=80
+    __CORE_OVERCLOCK=120
+    MEMORY_OVERCLOCK=1200
   fi
 
   # Skunk
@@ -1302,5 +1310,13 @@ then
     POWERLIMIT_WATTS=82
     __CORE_OVERCLOCK=100
     MEMORY_OVERCLOCK=0
+  fi
+      # LIZ skein
+  if [ $COIN == "LIZ" ]
+  then
+    ALGORITHM="SKEIN"
+    POWERLIMIT_WATTS=78
+    __CORE_OVERCLOCK=150
+    MEMORY_OVERCLOCK=200
   fi
 fi

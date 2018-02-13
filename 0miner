@@ -473,6 +473,13 @@ then
   screen -dmSL miner $HCD -a skein -o stratum+tcp://$DGB_POOL:$DGB_PORT -u $ADDR -p $MINER_PWD -i $DGB_INTENSITY
 fi
 
+if [ $COIN == "LIZ" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$LIZ_ADDRESS"
+  screen -dmSL miner $HCD -a skein -o stratum+tcp://$LIZ_POOL:$LIZ_PORT -u $ADDR -p c=LIZ -i $LIZ_INTENSITY
+fi
+
 if [ $COIN == "LBC" ]
 then
   HCD='/home/m1/SPccminer/ccminer'
