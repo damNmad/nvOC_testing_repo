@@ -589,6 +589,13 @@ then
   screen -dmSL miner $HCD -o stratum+tcp://$ETN_POOL:$ETN_PORT -u $ADDR -p $MINER_PWD
 fi
 
+if [ $COIN == "IRD" ]
+then
+  HCD='/home/m1/KTccminer-cryptonight/ccminer'
+  ADDR="$IRD_ADDRESS"
+  screen -dmSL miner $HCD -o stratum+tcp://$IRD_POOL:$IRD_PORT -u $ADDR -p $MINER_PWD
+fi
+
 if [ $COIN == "SUMO" ]
 then
   HCD='/home/m1/KTccminer-cryptonight/ccminer'
