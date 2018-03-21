@@ -183,7 +183,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 ######### SALFTER_NICEHASH_PROFIT_SWITCHING
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
-### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, 
+### New Coins: LUX, SUMO, DSR, ITNS, IRD, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, 
 ###            ZOC, RVN,  BBS, CRS,  B2B, LIZ,  HONEY,    BTCP, DXC,  DBIX
 
 
@@ -545,6 +545,12 @@ ETN_WORKER="$WORKERNAME"
 ETN_ADDRESS="replace_with_your_address"
 ETN_POOL="ETN POOL"
 ETN_PORT="ETN PORT"
+
+# Iridium(IRD) ## No Need to add stratum+tcp:// to server address
+IRD_WORKER="$WORKERNAME"
+IRD_ADDRESS="replace_with_your_address"
+IRD_POOL="IRD POOL"
+IRD_PORT="IRD PORT"
 
 # Sumo Koin(SUMO) ## No Need to add stratum+tcp:// to server address
 SUMO_WORKER="$WORKERNAME"
@@ -1279,7 +1285,7 @@ then
   fi
 
   # Cryptonight
-  if [ $COIN == "XMR" -o $COIN == "KRB" -o $COIN == "ETN" -o $COIN == "SUMO" -o $COIN == "ITNS" -o $COIN == "DCY" -o $COIN == "TRTL" -o $COIN == "HCN" -o $COIN == "BBS" -o $COIN == "B2B" ]
+  if [ $COIN == "XMR" -o $COIN == "KRB" -o $COIN == "ETN" -o $COIN == "IRD" -o $COIN == "SUMO" -o $COIN == "ITNS" -o $COIN == "DCY" -o $COIN == "TRTL" -o $COIN == "HCN" -o $COIN == "BBS" -o $COIN == "B2B" ]
   then
     ALGORITHM="CRYPTONIGHT"
     POWERLIMIT_WATTS=64
