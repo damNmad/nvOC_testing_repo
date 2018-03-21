@@ -151,6 +151,38 @@ then
   fi
 fi
 
+if [ $COIN == "BTCP" ]
+then
+  BTCPADDR="$BTCP_ADDRESS.$BTCP_WORKER"
+  if [ $EWBF_VERSION == "3_3" ]
+  then
+    HCD='/home/m1/zec/v3_3/miner'
+  fi
+  if [ $EWBF_VERSION == "3_4" ]
+  then
+    HCD='/home/m1/zec/v3_4/miner'
+  fi
+  if [ $EQUIHASH_MINER == "ZM" ]
+  then
+    HCD='/home/m1/zec/zm/latest/zm_miner'
+    screen -dmSL miner $HCD --server $BTCP_POOL --user $BTCPADDR --pass $MINER_PWD --port $BTCP_PORT  --time $ZM_OPTS ;
+  fi
+  if [ $EQUIHASH_MINER == "EWBF" ]
+  then
+    screen -dmSL miner $HCD --eexit 3 --fee $EWBF_PERCENT --pec --server $BTCP_POOL --user $BTCPADDR --pass $MINER_PWD --port $BTCP_PORT  $EWBF_OPTS ;
+  fi
+  if [ $EQUIHASH_MINER == "BMINER" ]
+  then
+    HCD='/home/m1/zec/bminer/latest/bminer'
+    screen -dmSL miner $HCD -uri stratum://$BTCPADDR:$MINER_PWD@$BTCP_POOL:$BTCP_PORT $BMINER_OPTS ;
+  fi
+  if [ $EQUIHASH_MINER == "BMINER_SSL" ]
+  then
+    HCD='/home/m1/zec/bminer/latest/bminer'
+    screen -dmSL miner $HCD -uri stratum+ssl://$BTCPADDR:$MINER_PWD@$BTCP_POOL:$BTCP_PORT $BMINER_OPTS ;
+  fi
+fi
+
 if [ $COIN == "SNG" ]
 then
   SNGADDR="$SNG_ADDRESS.$SNG_WORKER"
@@ -480,6 +512,13 @@ then
   screen -dmSL miner $HCD -a skein -o stratum+tcp://$LIZ_POOL:$LIZ_PORT -u $ADDR -p c=LIZ -i $LIZ_INTENSITY
 fi
 
+if [ $COIN == "DXC" ]
+then
+  HCD='/home/m1/ASccminer/ccminer'
+  ADDR="$DXC_ADDRESS"
+  screen -dmSL miner $HCD -a c11 -o stratum+tcp://$DXC_POOL:$DXC_PORT -u $ADDR -p c=DXC -i $DXC_INTENSITY
+fi
+
 if [ $COIN == "LBC" ]
 then
   HCD='/home/m1/SPccminer/ccminer'
@@ -660,6 +699,13 @@ then
   HCD='/home/m1/TPccminer/ccminer'
   ADDR="$SIGT_ADDRESS.$SIGT_WORKER"
   screen -dmSL miner $HCD -a skunk -o stratum+tcp://$SIGT_POOL:$SIGT_PORT -u $ADDR -p $MINER_PWD -i $SIGT_INTENSITY
+fi
+
+if [ $COIN == "HONEY" ]
+then
+  HCD='/home/m1/TPccminer/ccminer'
+  ADDR="$HONEY_ADDRESS"
+  screen -dmSL miner $HCD -a blake2s -o stratum+tcp://$HONEY_POOL:$HONEY_PORT -u $ADDR -p c=HONEY -i $HONEY_INTENSITY
 fi
 
 if [ $COIN == "RVN" ]
@@ -911,7 +957,7 @@ then
   if [ $ETHASH_MINER == "CLAYMORE" ]
   then
     HCD=/home/m1/eth/claymore/$CLAYMORE_VERSION/ethdcrminer64
-    screen -dmSL miner $HCD -epool $SOIL_POOL:$SOIL_PORT -ewal $SOILADDR -epsw x -mode 1 -allpools 1 -dbg -1 $SOIL_EXTENSION_ARGUMENTS
+    screen -dmSL miner $HCD -epool $SOIL_POOL:$SOIL_PORT -ewal $SOIL_ADDRESS -epsw x -eworker $SOIL_WORKER -esm 0  -mode 1 -allpools 1 -dbg -1 $SOIL_EXTENSION_ARGUMENTS
   fi
 fi
 
@@ -1271,17 +1317,12 @@ then
   screen -dmSL miner $HCD -epool $UBQ_POOL:$UBQ_PORT -ewal $UBQ_ADDRESS -eworker $UBQ_WORKER -epsw x -dpool $SC_POOL:$SC_PORT -dwal $SCADDR -dpsw x -dcoin sc -allcoins 1 -allpools 1 -dbg -1 $UBQ_EXTENSION_ARGUMENTS
 fi
 
-
 if [ $COIN == "DSR" ]
 then
   HCD='/home/m1/SPccminer/ccminer'
   ADDR="$DSR_ADDRESS"
   screen -dmSL miner $HCD -a neoscrypt -o stratum+tcp://$DSR_POOL:$DSR_PORT -u $ADDR -p c=$MINER_PWD -i $DSR_INTENSITY
 fi
-
-
-
-
 
 if [ $COIN == "ELLA" ]
 then
@@ -1303,7 +1344,31 @@ then
   if [ $ETHASH_MINER == "CLAYMORE" ]
   then
     HCD=/home/m1/eth/claymore/$CLAYMORE_VERSION/ethdcrminer64
-    screen -dmSL miner $HCD -epool $ELLA_POOL:$ELLA_PORT -ewal $ELLAADDR -epsw x -mode 1 -allpools 1 -dbg -1 $ELLA_EXTENSION_ARGUMENTS
+    screen -dmSL miner $HCD -epool $ELLA_POOL:$ELLA_PORT -ewal $ELLA_ADDRESS -eworker $ELLA_WORKER -epsw x -mode 1 -allpools 1 -dbg -1 $ELLA_EXTENSION_ARGUMENTS
+  fi
+fi
+
+if [ $COIN == "DBIX" ]
+then
+  DBIXADDR="$DBIX_ADDRESS/$DBIX_WORKER"
+  if [ $DOT_POOL_FORMAT_or_FORWARD_SLASH_POOL_FORMAT == "DOT" ]
+  then
+    DBIXADDR="$DBIX_ADDRESS.$DBIX_WORKER"
+  fi
+  if [ $ETHASH_MINER == "GENOIL" ]
+  then
+    HCD='/home/m1/eth/Genoil-U/ethminer'
+    screen -dmSL miner $HCD -G -F $DBIX_POOL:$DBIX_PORT/$DBIXADDR -SP 1 -U $DBIX_EXTENSION_ARGUMENTS
+  fi
+  if [ $ETHASH_MINER == "ETHMINER" ]
+  then
+    HCD='/home/m1/eth/ethminer/latest/ethminer'
+    screen -dmSL miner $HCD -G -F $DBIX_POOL:$DBIX_PORT/$DBIXADDR -SP 1 -U $DBIX_EXTENSION_ARGUMENTS
+  fi
+  if [ $ETHASH_MINER == "CLAYMORE" ]
+  then
+    HCD=/home/m1/eth/claymore/$CLAYMORE_VERSION/ethdcrminer64
+    screen -dmSL miner $HCD -epool $DBIX_POOL:$DBIX_PORT -ewal $DBIX_ADDRESS -eworker $DBIX_WORKER -epsw x -mode 1 -allpools 1 -dbg -1 $DBIX_EXTENSION_ARGUMENTS
   fi
 fi
 

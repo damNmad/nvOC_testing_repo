@@ -184,7 +184,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 ######### SALFTER_MPH_PROFIT_SWITCHING
 
 ### New Coins: LUX, SUMO, DSR, ITNS, RAP, GRLC, ETZ, DCY, NMD, XCOIN, VEGI, RACE, TRTL, SNG, HCN, 
-###            ZOC, RVN,  BBS, CRS,  B2B, LIZ
+###            ZOC, RVN,  BBS, CRS,  B2B, LIZ,  HONEY,    BTCP, DXC,  DBIX
 
 
 
@@ -202,7 +202,7 @@ nvOC_1bash_ver="v0019-2.1.0007"   # Do not edit this
 #                                                      #
 ########################################################
 
-COIN="LIZ"
+COIN="DBIX"
 
 AUTO_START_MINER="YES"      # YES or NO # Set this to NO when troubleshooting, this will prevent the watchdog restarting the rig
 
@@ -431,7 +431,7 @@ MPH_ADDRESS="replace_with_your_MPH_username"
 # For zpool use MINER_PWD="$WORKERNAME,c=btc"
 MINER_PWD="x"               # Set the miner password. Default: x
 
-EQUIHASH_MINER="BMINER"  # choose "ZM" for dstm or "EWBF" or "BMINER" or "BMINER_SSL"
+EQUIHASH_MINER="ZM"  # choose "ZM" for dstm or "EWBF" or "BMINER" or "BMINER_SSL"
 
 # DSTM ZM Miner optional arguments add "--telemetry=$IPW:42000" if you want web info
 ZM_OPTS=""
@@ -450,9 +450,11 @@ EWBF_PERCENT="0"
 
 # Some pools require dot (address.worker), some require slash (address/worker) format.
 # Depending on the pool you use, set this approprietly:
-DOT_POOL_FORMAT_or_FORWARD_SLASH_POOL_FORMAT="DOT"   # DOT or SLASH
+DOT_POOL_FORMAT_or_FORWARD_SLASH_POOL_FORMAT="SLASH"   # DOT or SLASH
 
 ETHASH_MINER="GENOIL"  # choose "CLAYMORE" or "ETHMINER" or "GENOIL"
+
+CLAYMORE_VERSION="latest"
 
 ################################################################
 ##### No Need to add stratum+tcp:// to your pool addresses #####
@@ -470,6 +472,12 @@ ZCL_WORKER="$WORKERNAME"
 ZCL_ADDRESS="replace_with_your_address"
 ZCL_POOL="us.zclmine.pro"
 ZCL_PORT="9009"
+
+#BTCP
+BTCP_WORKER="miner"
+BTCP_ADDRESS="joviSupra"
+BTCP_POOL="btcp.suprnova.cc"
+BTCP_PORT="6822"
 
 SNG_WORKER="$WORKERNAME"
 SNG_ADDRESS="s1T4LNxYVtSNGMHuadprK8Ly6TJUgVak1mY"
@@ -588,6 +596,13 @@ SIGT_ADDRESS="replace_with_your_address"
 SIGT_POOL="us.hashbag.cc"
 SIGT_PORT="8644"
 SIGT_INTENSITY="25"
+
+# HONEY ## No Need to add stratum+tcp:// to server address
+HONEY_WORKER="$WORKERNAME"
+HONEY_ADDRESS="HmENSkP1WtJ1RhiycwDQWTZk2Uqx1cyVug"
+HONEY_POOL="coffeepool.org"
+HONEY_PORT="5766"
+HONEY_INTENSITY="25"
 
 # Altcommunity(ALTCOM) ## No Need to add stratum+tcp:// to server address
 ALTCOM_WORKER="$WORKERNAME"
@@ -789,9 +804,11 @@ VIVO_INTENSITY="21"
 #LUXCORE LUX ## No Need to add stratum+tcp:// to server address
 LUX_WORKER="$WORKERNAME"
 LUX_ADDRESS="LbRa9w4qJ8midnQMPciK3tKzrstt21yZ3p"
-LUX_POOL="yiimp.eu"
-LUX_PORT="8333"
-LUX_INTENSITY="20"
+#LUX_POOL="yiimp.eu"
+#LUX_PORT="8333"
+LUX_POOL="eu1.altminer.net"
+LUX_PORT="11000"
+LUX_INTENSITY="21"
 
 # ONION ## No Need to add stratum+tcp:// to server address
 ONION_ADDRESS="replace_with_your_ONION_address"
@@ -800,10 +817,19 @@ ONION_PORT="3633"
 
 #Ellaism ELLA
 ELLA_WORKER="$WORKERNAME"
-ELLA_ADDRESS="replace_with_your_address"
-ELLA_POOL="replace_with_pool_address"
-ELLA_PORT="replace_with_pool_port"
+ELLA_ADDRESS="0xE8ce9F59dC10b6aEA344b5ee9D48f2aee1bA3BFF"
+#ELLA_POOL="pool.ellaism.org"
+#ELLA_PORT="7007"
+ELLA_POOL="solo-ella.2miners.com"
+ELLA_PORT="5050"
 ELLA_EXTENSION_ARGUMENTS=""    # add any additional Claymore miner arguments here
+
+#DBIX Dubai Coin
+DBIX_WORKER="$WORKERNAME"
+DBIX_ADDRESS="0xedd89621c674f5b69fc739f979f2522db923eb33"
+DBIX_POOL="http://beta-dbix.pool.sexy"
+DBIX_PORT="10031"
+DBIX_EXTENSION_ARGUMENTS="--farm-recheck 200 --cl-local-work 256 --cl-global-work 16384"    # add any additional Claymore miner arguments here
 
 #GoByte(GBX) ##No Need to add add stratum+tcp:// to server address
 GBX_WORKER="$WORKERNAME"
@@ -870,9 +896,11 @@ MUSIC_EXTENSION_ARGUMENTS=""   # add any additional Claymore miner arguments her
 
 # SOIL
 SOIL_WORKER="$WORKERNAME"
-SOIL_ADDRESS="replace_with_your_SOIL_address"
-SOIL_POOL="soil.pool.sexy"
-SOIL_PORT="9009"
+SOIL_ADDRESS="0x1c5Af04E67Bd389779ec9213B37d7B86e8dc25a1"
+#SOIL_POOL="soil.coinminer.space"
+#SOIL_PORT="4004"
+SOIL_POOL="beta-soil.pool.sexy"
+SOIL_PORT="10022"
 SOIL_EXTENSION_ARGUMENTS=""   # add any additional Claymore miner arguments here
 
 #
@@ -931,9 +959,9 @@ SMART_INTENSITY="25"
 # RVN ## No Need to add stratum+tcp:// to server address
 RVN_WORKER="$WORKERNAME"
 RVN_ADDRESS="RDU8kpAAr7CkZ3HbFKAxhKAhfDFVEcN6TY"
-RVN_POOL="pool.threeeyed.info"
+RVN_POOL="stratum.threeeyed.info"
 RVN_PORT="3333"
-RVN_INTENSITY="20"
+RVN_INTENSITY="19"
 
 # LIZ ## No Need to add stratum+tcp:// to server address
 LIZ_WORKER="$WORKERNAME"
@@ -941,6 +969,13 @@ LIZ_ADDRESS="LfTryGEEzB28JhAFMvVgkg98dUoKyuy6iL"
 LIZ_POOL="eu1.protopool.net"
 LIZ_PORT="4924"
 LIZ_INTENSITY="22"
+
+# DXC ## No Need to add stratum+tcp:// to server address
+DXC_WORKER="$WORKERNAME"
+DXC_ADDRESS="DLs3hiSCtyZiq3rs2ZuNJ9dRYss8KeE5YF"
+DXC_POOL="hashfaster.com"
+DXC_PORT="3574"
+DXC_INTENSITY="23"
 
 
 ########################################################
@@ -1217,17 +1252,16 @@ then
   fi
 
   # Ethash
-  if [ $COIN == "ETH" -o $COIN == "ETC" -o $COIN == "EXP" -o $COIN == "UBQ" -o $COIN == "MUSIC" -o $COIN == "SOIL" -o $COIN == "MPH_ETHASH" -o $COIN == "NICE_ETHASH" -o $COIN == "PIRL" -o $COIN == "ETZ" ]
+  if [ $COIN == "ETH" -o $COIN == "ETC" -o $COIN == "EXP" -o $COIN == "UBQ" -o $COIN == "MUSIC" -o $COIN == "SOIL" -o $COIN == "MPH_ETHASH" -o $COIN == "NICE_ETHASH" -o $COIN == "PIRL" -o $COIN == "ETZ" -o $COIN == "ELLA" -o $COIN == "DBIX" ]
   then
     ALGORITHM="ETHASH"
-    POWERLIMIT_WATTS=76
-    __CORE_OVERCLOCK=100
-    MEMORY_OVERCLOCK=1650
-
+    POWERLIMIT_WATTS=75
+    __CORE_OVERCLOCK=-300
+    MEMORY_OVERCLOCK=1400
   fi
 
   # Equihash
-  if [ $COIN == "BTG" -o $COIN == "ZEC" -o $COIN == "ZEN" -o $COIN == "HUSH" -o $COIN == "ZCL" -o $COIN == "KMD" -o $COIN == "ZPOOL_EQUIHASH" -o $COIN == "MPH_EQUIHASH" -o $COIN == "NICE_EQUIHASH" -o $COIN == "VOTE" -o $COIN == "SNG" ]
+  if [ $COIN == "BTG" -o $COIN == "ZEC" -o $COIN == "ZEN" -o $COIN == "HUSH" -o $COIN == "ZCL" -o $COIN == "KMD" -o $COIN == "ZPOOL_EQUIHASH" -o $COIN == "MPH_EQUIHASH" -o $COIN == "NICE_EQUIHASH" -o $COIN == "VOTE" -o $COIN == "SNG" -o $COIN == "BTCP" ]
   then
     ALGORITHM="EQUIHASH"
     POWERLIMIT_WATTS=80
@@ -1283,7 +1317,7 @@ then
   if [ $COIN == "LUX" ]
   then
     ALGORITHM="PHI"
-    POWERLIMIT_WATTS=82
+    POWERLIMIT_WATTS=78
     __CORE_OVERCLOCK=150
     MEMORY_OVERCLOCK=-1000
   fi
@@ -1317,6 +1351,22 @@ then
     ALGORITHM="SKEIN"
     POWERLIMIT_WATTS=78
     __CORE_OVERCLOCK=150
-    MEMORY_OVERCLOCK=200
+    MEMORY_OVERCLOCK=1000
+  fi
+      # HONEY blake2s
+  if [ $COIN == "HONEY" ]
+  then
+    ALGORITHM="BLAKE2S"
+    POWERLIMIT_WATTS=78
+    __CORE_OVERCLOCK=150
+    MEMORY_OVERCLOCK=800
+  fi
+       # HONEY blake2s
+  if [ $COIN == "DXC" ]
+  then
+    ALGORITHM="C11"
+    POWERLIMIT_WATTS=90
+    __CORE_OVERCLOCK=140
+    MEMORY_OVERCLOCK=-800
   fi
 fi
